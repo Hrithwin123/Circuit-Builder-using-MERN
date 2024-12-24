@@ -1,0 +1,114 @@
+*{
+    padding : 0;
+    margin : 0;
+}
+
+.circuit-heading{
+    text-decoration: underline;
+    font-family:Arial;
+    color:green;
+    font-size:40px;
+    margin:5px;
+}
+.circuit-display{
+    margin-left:5px;
+    display:flex;
+    flex-direction:column;
+    width:99vw;
+    height:99vh;
+    border: 2px solid;
+
+}
+
+.circuit-contents{
+    height:395px;
+    display :flex;
+    border:2px solid black;
+    
+}
+
+.circuit-info{
+    
+    height:370px;
+    width:300px;
+    border:2px solid;
+    margin-top : 10px;
+    margin-left : 60px;
+}
+
+
+.circuit-screen{
+
+    width: 800px;
+    height:370px;
+    margin-top : 10px;
+    margin-left : 30px;
+    margin-bottom : 100px;
+    display:flex;
+    justify-content:center;
+    flex-direction:row;
+    border : solid 2px;
+
+    
+}
+.circuit{
+    /* border : solid 2px; */
+    height:300px;
+    display:flex;
+    flex-direction:column;
+}
+
+
+.row{
+    height:50px;
+    margin-top:15px;
+    margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    
+}
+
+.startWire{
+    margin-top:45px;
+    height:300px;
+    background-color: black;
+    width:3px;
+
+}
+.endwire{
+    margin-top:30px;
+    min-width:100px;
+    width : 100%;
+    height:3px;
+    background-color : black;
+    margin-bottom : 13px;
+}
+
+
+
+.wire{
+    margin-top:30px;
+    min-width: 100px;
+    height:3px;
+    background-color : black;
+}
+
+.resistor{
+    height:25px;
+    width:50px;
+    background-image: url("../public/resistor.png");
+    background-size: 50px;
+    background-position-x: 0px;
+    background-position-y: -13.5px;
+    
+    
+}
+
+.buttons{
+    display:flex;
+
+    margin-top:5px;
+    border: 2px solid;
+    height:123px;
+
+}

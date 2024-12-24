@@ -1,0 +1,93 @@
+.container{
+    /* border:2px solid; */
+    height:78vh;
+    width:100vw;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction: column;
+
+}
+
+input:hover{
+    border : 2px solid rgb(114, 114, 114);
+    border-radius : 2px;
+}
+
+h1{
+    margin-top:5px;
+    color : green;
+    font-family:sans-serif;
+    text-decoration:underline;
+    font-size : 45px; 
+}
+.add{
+
+    margin-left : 15px;  
+    border:none;
+    background-color:green;
+    height:35px;
+    width: 100px;
+    border-radius:20px;
+    color : white;
+    
+}
+
+.add:hover{
+    background-color:rgb(1, 85, 1);
+    box-shadow :0px 1px 5px  rgb(0, 0, 0); 
+    
+}
+
+.delete{
+    margin-left : 15px; 
+    border:none;
+    background-color:rgb(201, 0, 0);
+    height:35px;
+    width: 130px;
+    border-radius:20px;
+    color : white;
+}
+
+.delete:hover{
+    box-shadow :0px 1px 5px  rgb(0, 0, 0); 
+    background-color:rgb(111, 0, 0);
+}
+.form{
+    margin-top:50px;
+    displaY: flex;
+    flex-direction:column;
+    /* border : 2px solid green; */
+    align-items:center;
+    /* justify-content : center; */
+    min-height: 300px;
+    min-width: 300px;
+}
+
+.text-box{
+    margin-left :10px;
+    text-align:center;
+    height:30px;
+    width: 60px;
+}
+
+
+.label{
+    font-family: sans-serif;
+    margin-top:5px;
+    font-size:20px;
+    font-weight: bolder;
+}
+
+.rows{
+    display:flex;
+    /* border:2px solid; */
+    align-items:center;
+    justify-content : center;
+    margin-top:20px;
+    padding : 10px;
+}
+
+.add:disabled{
+    display:none;
+}
