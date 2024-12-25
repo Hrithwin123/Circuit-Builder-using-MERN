@@ -1,23 +1,53 @@
-import express from "express"
-import path from "path"
-const app = express()
-import cors from "cors"
+import * as dotenv from "dotenv"
 
-const PORT = 5000;
+import express from "express"
+import cors from "cors"
+import Circuit from "./models/CircuitModel.js"
+import mongoose from "mongoose"
+
+
+const app = express()
+dotenv.config()
+
+
+const DBURI = process.env.DBURI 
+const PORT = parseInt(process.env.PORT);
 
 app.use(cors())
 
 app.use(express.json())
 
-app.get("/electrical", (req, res) => {
-  console.log("Reached here")
-  res.json({"circuit" : [[1, 2, 3, 4], [10], [10, 11, 12], [20, 30]]})
+  
+app.get("/getcircuit", (req, res) => {
+  
+  Circuit.find().sort({createdAt : -1}).select("-__v -createdAt -updatedAt")
+  .then(responselist => {
+    let getlist = responselist
+    res.json(getlist)
+
+  })
+  .catch(err => console.log(err))
+
 
 })
 
-app.post("/create", (req, res) => {
-  let data = req.body
-  console.log(data)
+app.get("/electrical/:id", (req, res) => {
+  console.log("code readed electrical")
+  const id = req.params.id
+  
+  Circuit.findById(id).select("-_id -createdAt -updatedAt -__v")
+  .then(response => res.json(response))
+
+})
+
+app.post("/create", async(req, res) => {
+  const data = req.body
+
+  const circuit = new Circuit(data)
+
+  const savedcircuit = await circuit.save()
+
+  console.log(`The object ${savedcircuit} has been saved`)
 
   res.status(200).json({message : "Circuit Recieved"})
  
@@ -26,6 +56,14 @@ app.post("/create", (req, res) => {
 
 
 
-app.listen(PORT, () => {
-    console.log(`App is listening on port ${PORT}....`)
+
+mongoose.connect(DBURI).then(() => {
+  console.log("Connected to DB")
+  app.listen(PORT, () => {
+    console.log(`App is listening on port ${PORT}`)
+  })
+
+
 })
+
+

@@ -1,6 +1,5 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
 import { Routes, BrowserRouter, Route } from 'react-router'
 import Circuit from './Circuit.jsx'
 import App from './App.jsx'

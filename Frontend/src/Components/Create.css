@@ -1,7 +1,5 @@
 .container{
     /* border:2px solid; */
-    height:78vh;
-    width:100vw;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -14,7 +12,7 @@ input:hover{
     border-radius : 2px;
 }
 
-h1{
+.head{
     margin-top:5px;
     color : green;
     font-family:sans-serif;

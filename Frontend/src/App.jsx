@@ -1,18 +1,24 @@
-import { Route, Routes, BrowserRouter} from "react-router"
-import Circuit from "./Circuit"
-import Create from "./Components/Create"
+import { Route, Routes, BrowserRouter} from "react-router-dom"
+import Circuit from "./Circuit.jsx"
+import Create from "./Components/Create.jsx"
+import Home from "./Components/Home.jsx"
+import { useState } from "react"
+
+
 
 
 
 function App(){
+
+    const [id, setid] = useState("")
+
+
 return(
     <BrowserRouter>
         <Routes>
-            <Route path = "circuit" element = {<Circuit/>}>
-            </Route>
-            <Route path = "create" element = {<Create/>}>
-
-            </Route>
+            <Route index element = {<Home/>}></Route>
+            <Route path = "circuit/:id" element = {<Circuit/>}></Route>
+            <Route path = "create" element = {<Create/>}></Route>
         </Routes>
     </BrowserRouter>
 )

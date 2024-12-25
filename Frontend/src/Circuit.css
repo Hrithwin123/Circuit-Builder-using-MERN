@@ -5,58 +5,52 @@
 
 .circuit-heading{
     text-decoration: underline;
-    font-family:Arial;
+    font-family:sans-serif;
     color:green;
-    font-size:40px;
-    margin:5px;
+    font-size:45px;
+    margin-top:5px;
+    
 }
 .circuit-display{
     margin-left:5px;
     display:flex;
     flex-direction:column;
-    width:99vw;
-    height:99vh;
-    border: 2px solid;
+
+    /* border: 2px solid; */
 
 }
 
 .circuit-contents{
-    height:395px;
-    display :flex;
-    border:2px solid black;
-    
-}
 
-.circuit-info{
+    display :flex;
+    /* border:2px solid red; */
+    justify-content : center;
     
-    height:370px;
-    width:300px;
-    border:2px solid;
-    margin-top : 10px;
-    margin-left : 60px;
+    
 }
 
 
 .circuit-screen{
 
-    width: 800px;
-    height:370px;
     margin-top : 10px;
-    margin-left : 30px;
-    margin-bottom : 100px;
+    margin-bottom : 10px;
     display:flex;
     justify-content:center;
     flex-direction:row;
-    border : solid 2px;
+    /* border : solid 2px blue; */
+    padding : 20px;
+    margin-left : 100px;
+    
 
     
 }
 .circuit{
     /* border : solid 2px; */
-    height:300px;
     display:flex;
     flex-direction:column;
+     
 }
+
 
 
 .row{
@@ -69,7 +63,8 @@
 }
 
 .startWire{
-    margin-top:45px;
+
+    margin-top:47px;
     height:300px;
     background-color: black;
     width:3px;
@@ -104,11 +99,68 @@
     
 }
 
-.buttons{
+.circuit-info{
     display:flex;
-
     margin-top:5px;
-    border: 2px solid;
+    /* border: 2px solid; */
     height:123px;
+    align-items : center;
+    justify-content :center;
+
+}
+
+.eqres{
+   
+    display :flex;
+    margin-left : 10px;
+    
+}
+
+.eqres-value{
+    margin-left : 5px;
+}
+
+.edit-delete{
+    margin-left : 25px;
+    /* border: 2px solid black; */
+    display :flex;
+    flex-direction: column;
+    align-items : center;
+    justify-content : space-evenly;
+
+}
+
+.edit{ 
+    border:none;
+    background-color: green;
+    height:40px;
+    width: 120px;
+    border-radius:20px;
+    color : white;
+    font-weight:bold;
+    
+}
+
+.edit:hover{
+    box-shadow: 0px 2px 5px black;
+    background-color:lime;
+    color :black;
+    
+}
+
+.delete-circuit{ 
+    border:none;
+    font-weight:bold;
+    background-color: rgb(255, 47, 47);
+    height:40px;
+    width: 120px;
+    border-radius:20px;
+    color : white;
+    
+}
+.delete-circuit:hover{
+    background-color:rgb(255, 106, 106);
+    color : black;
+    box-shadow: 0px 2px 5px black;
 
 }
