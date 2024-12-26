@@ -6,9 +6,6 @@ import Navbar from './Components/Navbar'
 import Battery from './Components/Battery'
 
 
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { useParams } from "react-router-dom"
 
 import './Circuit.css'

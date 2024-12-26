@@ -1,9 +1,12 @@
 .container{
-    /* border:2px solid; */
+    border:2px solid;
+    width : 650px;
+
     display:flex;
     align-items:center;
     justify-content:center;
     flex-direction: column;
+
 
 }
 
@@ -88,4 +91,43 @@ input:hover{
 
 .add:disabled{
     display:none;
+}
+
+.circuit-name{
+    text-align : center;
+    height : 25px;
+    width : 200px;
+    margin-left : 15px;
+    margin-top : 5px;
+
+}
+
+.submit{
+    margin-left : 15px;  
+    border:none;
+    background-color:green;
+    height:40px;
+    width: 125px;
+    border-radius:20px;
+    color : white;
+    font-weight : bolder;
+    margin-top : 25px;
+
+}
+
+
+.submit:hover{
+    background-color : lime;
+    color : black;
+    box-shadow : 0px 3px 5px black; 
+}
+
+.container-box{
+    border : 2px solid  blue;
+    display : flex;
+    flex-direction : column;
+    align-items:center;
+    justify-content : center;
+
+
 }

@@ -98,27 +98,28 @@ if(numrows == 0){
 
 
 return(
-   <>
-   <center><h1 className = "head">Create Your Circuit</h1></center>
-      <Navbar/>
-      <div className = "rows">
-         <label className="label">Enter a Name for your circuit : </label>
-         <input onChange = {(e) => handlename(e.target.value)} value = {name} type="text"></input>
-      </div>
+   <div className = "container-box">
+      <center><h1 className = "head">Create Your Circuit</h1></center>
+         <Navbar/>
+         <div className = "rows">
+            <label className="label">Enter a Name for your circuit : </label>
+            <input onChange = {(e) => handlename(e.target.value)} value = {name} type="text" className = "circuit-name"></input>
+         </div>
 
-      <div className = "rows">
-         <label className = "label">Enter the number of rows : </label>
-         <input defaultValue={0} onChange = {(e) => row(e.target.value)} type = "text"  className = "text-box"></input>
-      </div>
+         <div className = "rows">
+            <label className = "label">Enter the number of rows : </label>
+            <input defaultValue={0} onChange = {(e) => row(e.target.value)} type = "text"  className = "text-box"></input>
+         </div>
 
-   <div className="container">
-      <form>
-         {displayform}
-         <p></p>
-      </form>
-         <button disabled = {dis} onClick = {submit} className = "add">SUBMIT</button>
+      <div className="container">
+         <form>
+            {displayform}
+            <p></p>
+         </form>
+            <button disabled = {dis} onClick = {submit} className = "submit">SUBMIT</button>
+      </div>
+   <div/>
    </div>
-   </>
 )
 }
 
