@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react" 
-import "./Create.css"
 import Navbar from "./Navbar"
+import "./Create.css"
 function Create(){
 
 const [numrows, setNumrows] = useState(0)
@@ -90,6 +90,7 @@ const displayform = Array.from({length : numrows}).map((_, ind) => (
 
 ))
 
+
 let dis = false
 
 if(numrows == 0){
@@ -111,7 +112,7 @@ return(
             <input defaultValue={0} onChange = {(e) => row(e.target.value)} type = "text"  className = "text-box"></input>
          </div>
 
-      <div className="container">
+      <div  className= {dis ? "container disabled" : "container"}>
          <form>
             {displayform}
             <p></p>

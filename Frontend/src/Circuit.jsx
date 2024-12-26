@@ -42,15 +42,20 @@ function Circuit() {
     }
   });
   
-  console.log(max)
   
   function editcir(){
     window.location.href = `/edit/${id}`
   }
   
   function deletecir(){
-    window.location.href = `/delete/${id}`
+  
+    fetch(`http://localhost:5000/delete/${(id)}`, {method : "Delete"})
+    .then((response) => response.json())
+    .then(data => console.log(data))
+    .then(window.location.href = "/")
+    .catch(err => console.log(err))
 
+    
   }
 
   function eqres(){
@@ -89,13 +94,13 @@ function Circuit() {
                </>
         })}
         {row.length < max ? <div className="endwire"></div>: <Wire/>}
-  
+       
     </div>
     )
     
   })
 
-
+let currvolt = false
 
 
 
@@ -111,15 +116,15 @@ return(
 
         <div className="circuit">
           {displayCircuit}
-
+          {currvolt ? <Battery battery = "20" /> : null}
 
         </div>
         <div className="startWire"></div>
       </div>
 
       <div className = "edit-delete">
-          <button className = "edit" onClick = {() => editcir()}>Edit Circuit</button>
-          <button className = "delete-circuit" onClick = {() => deletecir()}>Delete Circuit</button>
+          <button type = "button" className = "edit" onClick = {() => editcir()}>Edit Circuit</button>
+          <button type = "button" className = "delete-circuit" onClick = {() => deletecir()}>Delete Circuit</button>
       </div>
      
     </div>

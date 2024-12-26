@@ -32,10 +32,11 @@ app.get("/getcircuit", (req, res) => {
 })
 
 app.get("/electrical/:id", (req, res) => {
-  console.log("code readed electrical")
+
   const id = req.params.id
   
   Circuit.findById(id).select("-_id -createdAt -updatedAt -__v")
+
   .then(response => res.json(response))
 
 })
@@ -54,8 +55,40 @@ app.post("/create", async(req, res) => {
 
 })
 
+app.delete("/delete/:id", (req, res) => {
+
+  const id = req.params.id
+  Circuit.findByIdAndDelete(id)
+  .then( res.json({"message" : `The circuit with id ${id} has been deleted`}))
+  .catch(err => {
+    console.log(err)
+    res.status(500).json({"message" : "An error occured while finding circuit with that id"})
+  
+  })
+
+ 
+})
 
 
+app.patch("/edit/:id", (req, res) => {
+
+  const id = req.params.id
+
+  console.log("code has entered edit")
+
+  const change = req.body
+
+  console.log(change)
+
+  Circuit.findByIdAndUpdate(id, change)
+  .then(res.json({"message" : `Circuit with id ${id}has been updated`}))
+  .catch(err => {
+    console.log(err)
+    res.json({"message" : "An error has occured"})
+
+  })
+    
+})
 
 mongoose.connect(DBURI).then(() => {
   console.log("Connected to DB")

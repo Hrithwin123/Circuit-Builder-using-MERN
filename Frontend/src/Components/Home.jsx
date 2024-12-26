@@ -38,7 +38,7 @@ function Home(){
         <center><h1 className = "home-head">Circuit Builder</h1></center>
         <Navbar/>
         {displaycircuits.length != 0 ?<h1 className = "all" >All Circuits</h1> : null}
-        {displaycircuits.length == 0 ? "Loading" : displaycircuits}
+        {displaycircuits.length == 0 ? null : displaycircuits}
     </>)
 
 

@@ -45,9 +45,10 @@
     
 }
 .circuit{
-    /* border : solid 2px; */
+    /* border : solid 2px red; */
     display:flex;
     flex-direction:column;
+    justify-content:space-between;
      
 }
 
@@ -63,9 +64,7 @@
 }
 
 .startWire{
-
     margin-top:47px;
-    height:300px;
     background-color: black;
     width:3px;
 
