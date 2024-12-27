@@ -13,8 +13,12 @@ import './Circuit.css'
 function Circuit() {
 
   const [circuit, setCircuit] = useState()
+  const [curr, setCurr] =  useState(0)
+  
 
   const {id} = useParams()
+
+  let eqres = 0
 
   useEffect(() => {
     axios.get(`http://localhost:5000/electrical/${id}`)
@@ -58,7 +62,7 @@ function Circuit() {
     
   }
 
-  function eqres(){
+  function eqresfunc(){
     let sumlist = [];
     let sum = 0
     let mul = 1;
@@ -75,10 +79,15 @@ function Circuit() {
       mul *= res
     })
 
+    eqres = (mul/sum).toFixed(2)
     
+  }
 
-    return (mul/sum).toFixed(2)
-    
+
+  function handlecurr(e){
+    const newvalue = e.target.value
+    setCurr(newvalue)
+
   }
 
   const displayCircuit = cir.map((row, ind) => {
@@ -100,9 +109,10 @@ function Circuit() {
     
   })
 
-let currvolt = false
 
+let currvolt = curr!= 0 && (curr[curr.length - 1] == "A" || curr[curr.length - 1] == "V")
 
+eqresfunc()
 
 return( 
   <div className="circuit-display">
@@ -116,7 +126,7 @@ return(
 
         <div className="circuit">
           {displayCircuit}
-          {currvolt ? <Battery battery = "20" /> : null}
+          {currvolt ? <Battery curr = {curr} eqres = {eqres} /> : null}
 
         </div>
         <div className="startWire"></div>
@@ -131,9 +141,16 @@ return(
     <div className = "circuit-info">
       <div className = "eqres">
         <h1 className = "eqres-head">Equivalence Resistance : </h1>
-        <h1 className = "eqres-value">{eqres()} &#8486;</h1>
+        <h1 className = "eqres-value">{eqres} &#8486;</h1>
       </div>
     </div>
+
+    
+    <div className="current-value-div">
+      <h1 className = "curr-head" >Current or Voltage : </h1>
+      <input onChange={(e) => handlecurr(e)} className = "curr-text" type = 'text'></input>
+    </div>
+
 </div>
 )}
 
