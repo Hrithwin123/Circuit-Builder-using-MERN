@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom"
 function Edit(){
 
     const {id} = useParams()
-
+ 
 
     const [numrows, setNumrows] = useState(0)
     const [rows, setRows] = useState([])
@@ -13,6 +13,27 @@ function Edit(){
     const [circuit, setCircuit] = useState([])
     const [name, setName] = useState("Electrical Circuit") 
     
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/edit/${id}`)
+        .then(response => response.json())
+        .then(data => {
+            const rowlist = []
+            setNumrows(data.circuit.length)
+            data.circuit.map((row) => {
+                rowlist.push(row.length)
+            })
+            console.log(rowlist)
+            setRows(rowlist)
+            setName(data.circuitname)
+            setCircuit(data.circuit)
+
+        })
+        .catch(err => console.log(err))
+
+    }, [])
+
+
     
     function row(value) {
         setCircuit(Array.from({length : parseInt(value)}).map((_,ind) => []) )

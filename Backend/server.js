@@ -34,6 +34,23 @@ app.get("/getcircuit", (req, res) => {
 
 })
 
+app.get("/edit/:id", (req, res) => {
+  console.log("code reached edit")
+  const id = req.params.id
+
+  Circuit.findById(id).select("-_id -createdAt -updatedAt -__v")
+  .then(cir => {
+    const foundCircuit = cir
+
+    res.json(foundCircuit)
+
+  })
+
+
+ 
+
+})  
+
 app.get("/electrical/:id", (req, res) => {
 
   const id = req.params.id
