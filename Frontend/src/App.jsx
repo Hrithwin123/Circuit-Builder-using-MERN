@@ -6,12 +6,7 @@ import { useState } from "react"
 import Edit from "./Components/Edit.jsx"
 
 
-
-
-
 function App(){
-
-    const [id, setid] = useState("")
 
 
 return(

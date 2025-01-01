@@ -1,3 +1,4 @@
+//imports
 import * as dotenv from "dotenv"
 
 import express from "express"
@@ -9,15 +10,17 @@ import mongoose from "mongoose"
 const app = express()
 dotenv.config()
 
-
+//constant declaration
 const DBURI = process.env.DBURI 
 const PORT = parseInt(process.env.PORT);
 
+
+//middlewares
 app.use(cors())
 
 app.use(express.json())
 
-  
+//controllers
 app.get("/getcircuit", (req, res) => {
   
   Circuit.find().sort({createdAt : -1}).select("-__v -createdAt -updatedAt")

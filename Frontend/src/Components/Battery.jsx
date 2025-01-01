@@ -11,7 +11,7 @@ function Battery({curr, eqres}){
 
     
     function handlecurrent(){
-        current = parseInt(curr.slice(0, curr.length - 1))
+        current = parseFloat(curr.slice(0, curr.length - 1))
 
         voltage = (current * eqres).toFixed(1)
 
@@ -19,7 +19,7 @@ function Battery({curr, eqres}){
 
     
     function handlevoltage(){
-        voltage = parseInt(curr.slice(0, curr.length - 1))
+        voltage = parseFloat(curr.slice(0, curr.length - 1))
 
         current = (voltage / eqres).toFixed(1)
 

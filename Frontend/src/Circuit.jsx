@@ -63,24 +63,34 @@ function Circuit() {
   }
 
   function eqresfunc(){
-    let sumlist = [];
-    let sum = 0
-    let mul = 1;
+    let sumlist = []
+    let invlist = []
+    let invres = 0
+
     cir.map((row) => {
-      row.forEach((res) => {
-        sum += res
+      let sum = 0;
+      row.map((resistor) => {
+        sum += resistor
+
       })
       sumlist.push(sum)
-      sum = 0
+
     })
 
-    sumlist.forEach((res) => {
-      sum += res
-      mul *= res
+    sumlist.map((sum) => {
+      let val = 1 / sum
+      invlist.push(val)
+
     })
 
-    eqres = (mul/sum).toFixed(2)
-    
+    invlist.map((invresistances) => {
+      invres += invresistances
+
+    })
+
+    eqres = (1 / invres).toFixed(4)
+
+
   }
 
 
